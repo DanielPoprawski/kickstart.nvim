@@ -4,6 +4,7 @@
 -- See the kickstart.nvim README for more information
 return {
   'nvim-telescope/telescope.nvim',
+  'theprimeagen/harpoon',
   'neovim/nvim-lspconfig',
   'nvim-neo-tree/neo-tree.nvim',
   dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons', 'MunifTAnjim/nui.nvim' },
