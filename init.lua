@@ -139,50 +139,6 @@ require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   { 'tpope/vim-fugitive' },
   'nvim-tree/nvim-tree.lua',
-  {
-    'nvim-neo-tree/neo-tree.nvim',
-    opts = {
-      filesystem = {
-        group_empty_dirs = true,
-        scan_mode = 'deep',
-        follow_current_file = {
-          enabled = true,
-          leave_dirs_open = true,
-        },
-        filtered_items = {
-          hide_gitignored = true,
-          hide_by_name = {
-            '.git',
-            'target',
-            'build',
-            '.gradle',
-            '.idea',
-            '*.class',
-          },
-        },
-        renderers = {
-          directory = {
-            { 'indent' },
-            { 'icon' },
-            { 'current_filter' },
-            { 'name', use_git_status_colors = true },
-            { 'clipboard' },
-            { 'diagnostics' },
-            { 'git_status', highlight = 'NeoTreeDimText' },
-          },
-          file = {
-            { 'icon' },
-            { 'name', use_git_status_colors = true },
-            { 'clipboard' },
-            { 'bufnr' },
-            { 'modified', highlight = 'NeoTreeModified' },
-            { 'diagnostics' },
-            { 'git_status', highlight = 'NeoTreeDimText' },
-          },
-        },
-      },
-    },
-  },
   'mfussenegger/nvim-jdtls',
   {
     'mbbill/undotree',
@@ -190,57 +146,6 @@ require('lazy').setup({
       vim.g.undotree_SplitWidth = 40
       vim.g.undotree_SetFocusWhenToggle = 1
       vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle Undo Tree' })
-    end,
-  },
-  {
-    'theprimeagen/harpoon',
-    branch = 'harpoon2',
-    keys = {
-      {
-        '<leader>a',
-        function()
-          require('harpoon'):list():add()
-        end,
-        desc = 'Harpoon add file',
-      },
-      {
-        '<C-e>',
-        function()
-          require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())
-        end,
-        desc = 'Harpoon toggle menu',
-      },
-      {
-        '<C-h>',
-        function()
-          require('harpoon'):list():select(1)
-        end,
-        desc = 'Harpoon file 1',
-      },
-      {
-        '<C-t>',
-        function()
-          require('harpoon'):list():select(2)
-        end,
-        desc = 'Harpoon file 2',
-      },
-      {
-        '<C-n>',
-        function()
-          require('harpoon'):list():select(3)
-        end,
-        desc = 'Harpoon file 3',
-      },
-      {
-        '<C-s>',
-        function()
-          require('harpoon'):list():select(4)
-        end,
-        desc = 'Harpoon file 4',
-      },
-    },
-    config = function()
-      local harpoon = require('harpoon'):setup()
     end,
   },
   -- NOTE: Plugins can also be added by using a table,
@@ -1013,7 +918,7 @@ require('lazy').setup({
     --    This is the easiest way to modularize your config.
     --
     --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-    -- { import = 'custom.plugins' },
+    { import = 'custom.plugins' },
     --
     -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
     -- Or use telescope!
